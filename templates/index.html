@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ランダムカラー生成器</title>
+    <style>
+        .colorBox {
+            width: 400px;
+            height: 200px;
+            border: 2px solid black;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="colorBox" id="colorBox" style="text-align: center;">
+        色を設定
+    </div>
+    <p style="text-align: center;">
+        <button onclick="changeColor()">色を変更</button>
+    </p>
+    <script>
+        function changeColor() {
+            const redNum = Math.floor(Math.random() * 256);
+            const compRedNum = 255 - redNum;
+            const greenNum = Math.floor(Math.random() * 256);
+            const compGreenNum = 255 - greenNum;
+            const blueNum = Math.floor(Math.random() * 256);
+            const compBlueNum = 255 - blueNum;
+            const randomColor = `rgb(${redNum}, ${greenNum}, ${blueNum})`;
+            const compColor = `rgb(${compRedNum}, ${compGreenNum}, ${compBlueNum})`;
+            document.getElementById("colorBox").style.backgroundColor = randomColor;
+            document.getElementById("colorBox").style.color = compColor;
+            document.getElementById("colorBox").textContent = "色: " + randomColor;
+        }
+    </script>
+</body>
+
+</html>
